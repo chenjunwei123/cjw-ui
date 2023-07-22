@@ -2,7 +2,7 @@
  * @Author: cjw 15316117075@163.com
  * @Date: 2023-07-18 21:30:08
  * @LastEditors: cjw 15316117075@163.com
- * @LastEditTime: 2023-07-22 18:31:13
+ * @LastEditTime: 2023-07-22 20:45:04
  * @FilePath: \前端\cjw-ui\src\App.vue
  * @Description:
  *
@@ -88,9 +88,28 @@
     <cjw-radio label="0">男</cjw-radio>
     <cjw-radio label="1">女</cjw-radio> -->
 
-    <input type="radio" name="fruit" value="apple">1
-<input type="radio" name="fruit" value="banana">2
-<input type="radio" name="fruit" value="orange">3
+    <!-- <input type="radio" name="fruit" value="apple">1
+    <input type="radio" name="fruit" value="banana">2
+    <input type="radio" name="fruit" value="orange">3 -->
+
+    <!-- <cjw-checkbox-group v-model="hobby">
+      <cjw-checkbox label="1">是都选择1</cjw-checkbox>
+      <cjw-checkbox label="2">是都选择2</cjw-checkbox>
+      <cjw-checkbox label="3">是都选择3</cjw-checkbox>
+    </cjw-checkbox-group>
+
+      <cjw-checkbox label="1" v-model="number">是都选择1</cjw-checkbox>
+      <cjw-checkbox label="2" v-model="number">是都选择2</cjw-checkbox>
+      <cjw-checkbox label="3" v-model="number">是都选择3</cjw-checkbox> -->
+
+      <cjw-form :model="model" label-width="90px">
+        <cjw-form-item label="用户名">
+          <cjw-input placeholder="请输入用户名" v-model="model.username"></cjw-input>
+        </cjw-form-item>
+        <cjw-form-item label="选择">
+          <cjw-switch v-model="model.active" active-color="#13ce66" inactive-color="#ff4949"></cjw-switch>
+        </cjw-form-item>
+      </cjw-form>
   </div>
 </template>
 
@@ -105,7 +124,13 @@ export default {
       visible: false,
       username: '',
       active: false,
-      gender: '0'
+      gender: '0',
+      number: '1',
+      hobby: ['1', '2'],
+      model: {
+        active: false,
+        username: ''
+      }
     }
   },
   methods: {
